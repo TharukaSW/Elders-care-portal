@@ -4,8 +4,7 @@ import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'r
 
 export default function GetStartScreen() {
   const handleGetStart = () => {
-    // Navigate to your main app/home page here
-    router.replace('/');
+    router.replace('/select-role');
   };
 
   return (

@@ -9,6 +9,12 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
   <Stack.Screen name="onboarding_one" />
+  <Stack.Screen name="select-role" />
+  <Stack.Screen name="family-register" />
+  <Stack.Screen name="elderly-register" />
+  <Stack.Screen name="healthcare-register" />
+  <Stack.Screen name="caregiver-register" />
+  <Stack.Screen name="login" />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
