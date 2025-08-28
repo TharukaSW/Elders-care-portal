@@ -8,7 +8,7 @@ export default function LoginScreen() {
   const [remember, setRemember] = useState(false);
 
   const handleLogin = () => {
-    // Login logic here
+    router.replace('/main-tabs');
   };
 
   const handleRegister = () => {
