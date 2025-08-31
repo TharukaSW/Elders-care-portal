@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AppointmentScreen from './appointment';
+import ChatList from './components/ChatList';
+import GuardianDashboard from './components/GuardianDashboard';
 import MyProfileScreen from './my-profile';
 
 const tabs = [
@@ -14,26 +16,25 @@ const tabs = [
 
 export default function MainTabsScreen() {
   const [activeTab, setActiveTab] = useState(0);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleTabPress = (idx: number) => {
     setActiveTab(idx);
     // Add navigation logic for each tab if needed
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1 }}>
         {activeTab === 0 && (
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 22, color: '#1186A6', fontWeight: '700' }}>Home Page</Text>
-          </View>
+          <GuardianDashboard darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         )}
         {activeTab === 1 && <AppointmentScreen />}
-        {activeTab === 2 && (
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 22, color: '#1186A6', fontWeight: '700' }}>Chat Page</Text>
-          </View>
-        )}
+        {activeTab === 2 && <ChatList onNavigateToHome={() => setActiveTab(0)} />}
   {activeTab === 3 && <MyProfileScreen />}
       </View>
       <View style={styles.tabBar}>
